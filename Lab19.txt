@@ -1,0 +1,107 @@
+1. select * from customers;
+
+2. 
+select distinct country
+
+from customers;
+
+3. 
+SELECT * 
+
+from customers
+
+where customerID like "BL%"; 
+
+4.
+SELECT * 
+
+from orders
+
+limit 100;
+
+5.
+select *
+
+from customers
+
+where postalCode in (1010, 3012, 12209, 05023);
+
+6.
+SELECT * 
+
+from orders
+
+where shipregion is not null;
+
+7.
+SELECT * 
+
+from customers
+
+order by country, city;
+
+8.
+INSERT INTO customers (customerID, companyname, contactname, contacttitle, address, city, postalcode, country, phone, fax) 
+
+VALUES ('AAAAA', 'Ace Novelty Company', 'Ace Ventura', 'Main Ace Leader', '123 Main Street','Detroit', '12345', 'USA', '(313) 123-4567', '(313) 123-4568'); 
+
+9.
+update orders
+
+set shipregion = 'EuroZone'
+
+where ShipCountry = 'France';
+
+10.
+DELETE FROM order details
+WHERE quantity = 1;
+
+11.
+SELECT avg(quantity) as Average_Quantity, max(quantity) as Max_Quantity, min(quantity) as Min_Quantity
+
+FROM `northwind`.`order details`;
+
+12.
+SELECT avg(quantity) as Average_Quantity, max(quantity) as Max_Quantity, min(quantity) as Min_Quantity
+
+
+FROM `northwind`.`order details`
+
+
+group by orderid;
+
+13. select customerID
+
+from orders
+
+where orderID = 10290;
+	
+14. 
+// Inner join
+
+select a.customerID, b.orderDate
+
+from customers a
+
+inner join orders b on a.customerID = b.customerID;
+
+
+//Left Join
+SELECT * FROM customers LEFT JOIN orders ON customers.customerid = orders.customerid;
+
+//Right Join
+
+SELECT * FROM customers Right JOIN orders ON customers.customerid = orders.customerid;
+
+15.
+
+select FirstName
+
+from employees
+
+where reportsTo is Null;
+
+16.
+Select firstName
+
+from  employees where reportsTo = (select employeeid from employees where firstname = "Andrew");
